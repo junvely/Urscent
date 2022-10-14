@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# 🧴Urscent
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### 🧴Urscent : 향수 프로젝트
 
-## Available Scripts
+- 머신러닝 알고리즘을 활용해 개인화된 향수 추천을 제공하는 웹 개발 프로젝트 : 프론트엔드 담당
 
-In the project directory, you can run:
+- Notion :
 
-### `yarn start`
+<!-- <img src ="" alt=""> -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🕹️ Stack 사용스택(프론트엔드)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<div style="display:flex">
+  <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
+  <img src="https://img.shields.io/badge/PostCSS-%dc3a09.svg?style=for-the-badge&logo=PostCSS&logoColor=white">
+  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">
+  <img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white">
+</div>
 
-### `yarn test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 💻Desktop page
 
-### `yarn build`
+#### 🔐login page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ✨ Business Card Maker기능
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 프로젝트 기능 사항
 
-### `yarn eject`
+- 검색 기능 : 향수명 또는 향수 정보를 통해 원하는 향수 검색 기능
+- 추천 기능 : 성별, 좋아요, 취향을 분석하여 추천을 제공하는 기능
+- 향수 상세 페이지 & 커뮤니티 기능 : 간단한 댓글 등
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### FE 기능
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## ❇️ 날짜별 기능 구현 기록
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### 10/12 : 🎉 : Urscent 프로젝트 생성
 
-## Learn More
+#### 10/14 : 💄 : Header 컴포넌트 생성 및 스타일 적용
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 프로젝트 폴더 구조 설계, 페이지 및 컴포넌트 구성
+- Router 페이지간 이동 기능 구현
+- Header(before Login), searchBar 컴포넌트 생성 및 스타일 적용
+- SearchBar 유효성 검사 : form > submit 시 미입력 방지(required), 30자 이상(임의)
+- SearchBar 검색 후 ref를 사용하여 입력폼 초기화 : inputRef.current.reset() x 폼에서만 가능 formRef.current.reset()
+- 로그인 정보가 있을 시 로그인, 회원가입 > 로그아웃, My page으로 변경
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+    inputRef.current.value(); > inputRef의 현재 값 가져오기
+    formRef.current.reset(); > formRef에서 폼 초기화
+```
 
-### Code Splitting
+- 구현 사항 확인을 위해 Netlify 배포하여 확인
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<img src="/public/img/header.jpg" alt="header image">
 
-### Analyzing the Bundle Size
+##### ✖️ 더 알아보기 : 폼 초기화 시 ref와 event.target 사용의 차이점
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+##### ✖️ 더 추가할 기능 : 로그인 정보 받아오기
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ✅ Takeaway 리팩토링 외 느낀점/개선할점

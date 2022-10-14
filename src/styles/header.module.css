@@ -1,0 +1,61 @@
+.header {
+  width: 100%;
+  height: auto;
+  padding: 1.5em 0 1em 0;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: #ffffff;
+  border-bottom: 1px solid #d9d9d9;
+  z-index: -1;
+}
+
+.nav {
+  width: 100%;
+  max-width: 1256px;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* left menu */
+
+.leftMenu {
+  display: flex;
+}
+
+.logo {
+  width: 10em;
+  height: 5em;
+  display: block;
+}
+
+.gnb {
+  display: flex;
+  align-items: flex-end;
+}
+
+.gnb li {
+  font-size: 1.125rem;
+  font-weight: 400;
+  font-family: Noto Sans KR, sans-serif;
+  line-height: 1.625rem;
+  padding-bottom: 4px;
+  margin-left: 1.875em;
+}
+
+/* right menu */
+
+.loginMenu {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5em 0.75em 0 0;
+}
+
+.loginMenu li {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  line-height: 1.4375rem;
+  margin-left: 2em;
+}
