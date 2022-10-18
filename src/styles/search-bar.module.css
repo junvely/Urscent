@@ -1,7 +1,7 @@
 .searchBar {
-  width: 25.5rem;
-  padding: 0.46em 1.5em;
-  margin-top: 0.875em;
+  width: 100%;
+  padding: 0.75rem 2.4rem;
+  margin-top: 1.4rem;
   display: flex;
   background: #ffffff;
   border: 1px solid #333333;
@@ -14,31 +14,36 @@
 
 .searchInput {
   width: 100%;
-  font-size: 0.8125rem;
+  font-size: 1.3rem;
   font-family: "Noto Sans HK";
   font-weight: 500;
-  line-height: 1.1875rem;
+  line-height: 1.9rem;
   color: #666666;
   outline: none;
 }
 
 .searchBtn {
-  width: 1.375em;
-  height: 1.375em;
   position: absolute;
+  width: 2.2rem;
+  height: 2.2rem;
+  top: 50%;
+  transform: translateY(-50%);
   right: 20px;
   cursor: pointer;
+  /* border: 1px solid; */
 }
-
 .searchBtn img:nth-child(1) {
   position: absolute;
-  left: 90%;
-  top: 90%;
+  width: 0.7rem;
+  left: 77%;
+  right: 12.5%;
+  top: 70%;
   bottom: 12.5%;
 }
 
 .searchBtn img:nth-child(2) {
   position: absolute;
+  width: 1.8rem;
   left: 12.5%;
   right: 20.83%;
   top: 12.5%;

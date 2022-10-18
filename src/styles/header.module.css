@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   height: auto;
-  padding: 1.5em 0 1em 0;
+  padding: 2.4rem 1.6rem 1.6rem 1.6rem;
   position: absolute;
   left: 0px;
   top: 0px;
@@ -17,6 +17,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  transition: all 0.3s;
 }
 
 /* left menu */
@@ -26,8 +27,8 @@
 }
 
 .logo {
-  width: 10em;
-  height: 5em;
+  width: 16rem;
+  height: 8rem;
   display: block;
 }
 
@@ -37,25 +38,44 @@
 }
 
 .gnb li {
-  font-size: 1.125rem;
+  font-size: 1.8rem;
   font-weight: 400;
   font-family: Noto Sans KR, sans-serif;
-  line-height: 1.625rem;
+  line-height: 2.606rem;
   padding-bottom: 4px;
-  margin-left: 1.875em;
+  margin-left: 2rem;
 }
 
 /* right menu */
 
+.rightMenu {
+  width: 40.8rem;
+  transition: all 0.3s;
+}
+
 .loginMenu {
   display: flex;
   justify-content: flex-end;
-  padding: 0.5em 0.75em 0 0;
+  padding: 0.8rem 1.2rem 0 0;
 }
 
 .loginMenu li {
+  font-size: 1.6rem;
   font-family: "Noto Sans KR";
   font-weight: 500;
-  line-height: 1.4375rem;
-  margin-left: 2em;
+  line-height: 2.317rem;
+  margin-left: 3.22rem;
+}
+
+/* responsive */
+
+/* tablet */
+@media only screen and (max-width: 768px) {
+  .rightMenu {
+    width: 32.485%;
+  }
+}
+
+/* mobile */
+@media only screen and (max-width: 480px) {
 }

@@ -28,8 +28,8 @@ const SearchBar = (props) => {
           required
         />
         <button className={styles.searchBtn}>
-          <img src="/img/searchBar-1.png" alt="" />
-          <img src="/img/searchBar-2.png" alt="" />
+          <img src="/img/searchBar-1.png" alt="search-1-1" />
+          <img src="/img/searchBar-2.png" alt="search-1-2" />
         </button>
       </form>
     </div>

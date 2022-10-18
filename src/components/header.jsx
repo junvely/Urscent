@@ -15,7 +15,7 @@ const Header = (props) => {
       <nav className={styles.nav}>
         <div className={styles.leftMenu}>
           <Link to="/">
-            <img src="img/logo.png" alt="logo-image" className={styles.logo} />
+            <img src="img/logo.png" alt="logo" className={styles.logo} />
           </Link>
           <ul className={styles.gnb}>
             <li>
@@ -23,9 +23,6 @@ const Header = (props) => {
             </li>
             <li>
               <Link to="/perfume-brand">Perfume Brand</Link>
-            </li>
-            <li>
-              <Link to="/perfumer">Perfumer</Link>
             </li>
           </ul>
         </div>
