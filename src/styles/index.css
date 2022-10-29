@@ -33,6 +33,12 @@ a {
   text-decoration: none;
 }
 
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 input,
 button {
   background: none;

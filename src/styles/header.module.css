@@ -43,7 +43,7 @@
   font-family: Noto Sans KR, sans-serif;
   line-height: 2.606rem;
   padding-bottom: 4px;
-  margin-left: 2rem;
+  margin-left: 3rem;
 }
 
 /* right menu */
@@ -53,10 +53,12 @@
   transition: all 0.3s;
 }
 
+/* login menu */
+
 .loginMenu {
   display: flex;
   justify-content: flex-end;
-  padding: 0.8rem 1.2rem 0 0;
+  padding-top: 0.8rem;
 }
 
 .loginMenu li {
@@ -64,7 +66,51 @@
   font-family: "Noto Sans KR";
   font-weight: 500;
   line-height: 2.317rem;
-  margin-left: 3.22rem;
+  text-align: center;
+}
+
+/* login menu - before login */
+
+.signUp {
+  padding-left: 3.2rem;
+  padding-right: 1.2rem;
+}
+
+/* login menu - after login */
+
+.logOut {
+  line-height: 23.17px;
+}
+
+.myLikeList,
+.myPage {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.myLikeList {
+  padding-top: 0.3rem;
+  margin-left: 5rem;
+}
+
+.myPage {
+  position: relative;
+  margin-left: 2rem;
+}
+
+.myPage1 {
+  position: absolute;
+  left: 33.33%;
+  right: 33.33%;
+  top: 12.5%;
+  bottom: 54.17%;
+}
+.myPage2 {
+  position: absolute;
+  left: 16.67%;
+  right: 16.67%;
+  top: 62.5%;
+  bottom: 12.5%;
 }
 
 /* responsive */

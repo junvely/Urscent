@@ -2,20 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./search-bar";
 import styles from "../styles/header.module.css";
+import AfterLoginMenu from "./after-login-menu";
+import BeforeLoginMenu from "./before-login-menu";
 
 const Header = (props) => {
+  // const userLogin = true;
   const userLogin = false;
-
-  const logOut = () => {
-    console.log("Logout");
-  };
 
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.leftMenu}>
           <Link to="/">
-            <img src="img/logo.png" alt="logo" className={styles.logo} />
+            <img src="img/logo.svg" alt="logo" className={styles.logo} />
           </Link>
           <ul className={styles.gnb}>
             <li>
@@ -27,22 +26,11 @@ const Header = (props) => {
           </ul>
         </div>
         <div className={styles.rightMenu}>
-          <ul className={styles.loginMenu}>
-            {userLogin ? (
-              <li onClick={logOut}>로그아웃</li>
-            ) : (
-              <li>
-                <Link to="/login">LOGIN</Link>
-              </li>
-            )}
-            <li>
-              {userLogin ? (
-                <Link to="/my-page">My page</Link>
-              ) : (
-                <Link to="/sign-up">회원가입</Link>
-              )}
-            </li>
-          </ul>
+          {userLogin ? (
+            <AfterLoginMenu></AfterLoginMenu>
+          ) : (
+            <BeforeLoginMenu></BeforeLoginMenu>
+          )}
           <SearchBar></SearchBar>
         </div>
       </nav>

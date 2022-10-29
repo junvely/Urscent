@@ -6,6 +6,7 @@ import Perfumer from "./pages/perfumer";
 import PerfumeBrand from "./pages/perfume-brand";
 import SignUp from "./pages/sign-up";
 import MyPage from "./pages/my-page";
+import MyLikeList from "./pages/my-like-list";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/perfume-brand" element={<PerfumeBrand />} />
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/my-page" element={<MyPage />} />
+      <Route path="/my-like-list" element={<MyLikeList />} />
     </Routes>
   );
 }
