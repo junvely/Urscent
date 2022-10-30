@@ -85,11 +85,11 @@ html {
   npm i react-responsive
 ```
 
-> #### 10/30 : 🎨 : Header(before, after) login-menu 컴포넌트 분리
+> #### 10/30 : 🎨 : Header login-menu(before, after) 컴포넌트 분리
 
 - Logo 이미지 변경
 - 로그인 전 후 디자인 차이로 인한 before-login-menu, after-login-menu 각각 컴포넌트 분리
-- my-like-list, my-page 벡터 이미지 추가 : 따로 변경사항 없이 사용할 경우 <img>또는 background로 사용하고, CSS 등 변경이 필요할 경우는 inline으로 직접 추가하고 CSS에서 조절 가능하다.
+- my-like-list, my-page 벡터 이미지 추가 : 따로 이미지 조작 없이 사용할 경우 <img>또는 background로 사용하고, CSS 등 변경이 필요할 경우는 inline으로 직접 추가하고 CSS에서 조절 가능하다.
 
 ```jsx
 <svg
@@ -107,6 +107,21 @@ html {
     stroke-linejoin="round"
   />
 </svg>
+```
+
+> #### 10/31 : 🎨 : 벡터이미지 사용 방법 개선(컴포넌트화)
+
+- svg를 inline방식으로 html에 직접 삽입할 경우 코드를 관리하기 어려워짐으로 컴포넌트화하여 사용하기로 변경
+- logo, search, my-page, my-like-list 등 SVG 아이콘 src>assets 파일로 이동
+- ReactComponent as ~ 로 컴포넌트로 import
+- svg파일 내부에서 width, height = "current"로 설정하여 props으로 값을 주거나, CSS에서 자유롭게 변경가능 하도록 설정
+- 반응형 고려 시에는 CSS에서 rem,em단위로 설정하는 것이 더 좋은 방법인 것 같다.
+
+```javascript
+import { ReactComponent as MyLikeList } from "../assets/my-like-list.svg";
+import { ReactComponent as MyPage } from "../assets/my-page.svg";
+
+<MyPage className={styles.myPage}></MyPage>;
 ```
 
 <br>

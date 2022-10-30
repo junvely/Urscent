@@ -4,17 +4,18 @@ import SearchBar from "./search-bar";
 import styles from "../styles/header.module.css";
 import AfterLoginMenu from "./after-login-menu";
 import BeforeLoginMenu from "./before-login-menu";
+import { ReactComponent as Logo } from "../assets/logo.svg";
 
 const Header = (props) => {
-  // const userLogin = true;
-  const userLogin = false;
+  const userLogin = true;
+  // const userLogin = false;
 
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
         <div className={styles.leftMenu}>
           <Link to="/">
-            <img src="img/logo.svg" alt="logo" className={styles.logo} />
+            <Logo className={styles.logo}></Logo>
           </Link>
           <ul className={styles.gnb}>
             <li>

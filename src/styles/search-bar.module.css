@@ -30,22 +30,4 @@
   transform: translateY(-50%);
   right: 20px;
   cursor: pointer;
-  /* border: 1px solid; */
-}
-.searchBtn img:nth-child(1) {
-  position: absolute;
-  width: 0.7rem;
-  left: 77%;
-  right: 12.5%;
-  top: 70%;
-  bottom: 12.5%;
-}
-
-.searchBtn img:nth-child(2) {
-  position: absolute;
-  width: 1.8rem;
-  left: 12.5%;
-  right: 20.83%;
-  top: 12.5%;
-  bottom: 20.83%;
 }

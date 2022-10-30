@@ -89,28 +89,8 @@
 }
 
 .myLikeList {
-  padding-top: 0.3rem;
   margin-left: 5rem;
-}
-
-.myPage {
-  position: relative;
-  margin-left: 2rem;
-}
-
-.myPage1 {
-  position: absolute;
-  left: 33.33%;
-  right: 33.33%;
-  top: 12.5%;
-  bottom: 54.17%;
-}
-.myPage2 {
-  position: absolute;
-  left: 16.67%;
-  right: 16.67%;
-  top: 62.5%;
-  bottom: 12.5%;
+  margin-right: 2rem;
 }
 
 /* responsive */

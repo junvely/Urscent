@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import styles from "../styles/search-bar.module.css";
+import { ReactComponent as Search } from "../assets/search.svg";
 
 const SearchBar = (props) => {
   const inputRef = useRef();
@@ -28,8 +29,7 @@ const SearchBar = (props) => {
           required
         />
         <button className={styles.searchBtn}>
-          <img src="/img/searchBar-1.png" alt="search-1-1" />
-          <img src="/img/searchBar-2.png" alt="search-1-2" />
+          <Search></Search>
         </button>
       </form>
     </div>
