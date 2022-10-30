@@ -31,3 +31,8 @@
   right: 20px;
   cursor: pointer;
 }
+
+.searchIcon {
+  width: 2.2rem;
+  height: 2.2rem;
+}

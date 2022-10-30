@@ -2,9 +2,6 @@
   width: 100%;
   height: auto;
   padding: 2.4rem 1.6rem 1.6rem 1.6rem;
-  position: absolute;
-  left: 0px;
-  top: 0px;
   background: #ffffff;
   border-bottom: 1px solid #d9d9d9;
   z-index: -1;
@@ -29,7 +26,6 @@
 .logo {
   width: 16rem;
   height: 8rem;
-  display: block;
 }
 
 .gnb {
@@ -82,15 +78,15 @@
   line-height: 23.17px;
 }
 
-.myLikeList,
-.myPage {
-  width: 2.4rem;
-  height: 2.4rem;
-}
-
 .myLikeList {
   margin-left: 5rem;
   margin-right: 2rem;
+}
+
+.myLikeListIcon,
+.myPageIcon {
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 /* responsive */

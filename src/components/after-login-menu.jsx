@@ -16,12 +16,12 @@ const AfterLoginMenu = (props) => {
       </li>
       <li className={styles.myLikeList}>
         <Link to="/my-like-list">
-          <MyLikeList></MyLikeList>
+          <MyLikeList className={styles.myLikeListIcon}></MyLikeList>
         </Link>
       </li>
       <li className={styles.myPage}>
         <Link to="/my-page">
-          <MyPage className={styles.myPage}></MyPage>
+          <MyPage className={styles.myPageIcon}></MyPage>
         </Link>
       </li>
     </ul>

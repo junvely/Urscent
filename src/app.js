@@ -7,6 +7,7 @@ import PerfumeBrand from "./pages/perfume-brand";
 import SignUp from "./pages/sign-up";
 import MyPage from "./pages/my-page";
 import MyLikeList from "./pages/my-like-list";
+import PrivacyPolicy from "./components/privacy-policy";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/sign-up" element={<SignUp />} />
       <Route path="/my-page" element={<MyPage />} />
       <Route path="/my-like-list" element={<MyLikeList />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
     </Routes>
   );
 }

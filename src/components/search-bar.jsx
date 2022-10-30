@@ -29,7 +29,7 @@ const SearchBar = (props) => {
           required
         />
         <button className={styles.searchBtn}>
-          <Search></Search>
+          <Search className={styles.searchIcon}></Search>
         </button>
       </form>
     </div>

@@ -85,6 +85,8 @@ html {
   npm i react-responsive
 ```
 
+<br>
+
 > #### 10/30 : 🎨 : Header login-menu(before, after) 컴포넌트 분리
 
 - Logo 이미지 변경
@@ -109,13 +111,15 @@ html {
 </svg>
 ```
 
-> #### 10/31 : 🎨 : 벡터이미지 사용 방법 개선(컴포넌트화)
+<br>
+
+> #### 10/31 : 1. 🎨 : 벡터이미지 사용 방법 개선(컴포넌트화)
 
 - svg를 inline방식으로 html에 직접 삽입할 경우 코드를 관리하기 어려워짐으로 컴포넌트화하여 사용하기로 변경
 - logo, search, my-page, my-like-list 등 SVG 아이콘 src>assets 파일로 이동
 - ReactComponent as ~ 로 컴포넌트로 import
-- svg파일 내부에서 width, height = "current"로 설정하여 props으로 값을 주거나, CSS에서 자유롭게 변경가능 하도록 설정
-- 반응형 고려 시에는 CSS에서 rem,em단위로 설정하는 것이 더 좋은 방법인 것 같다.
+- svg파일 내부에서 width, height = "current"로 props으로 값을 주거나, CSS에서 자유롭게 변경가능 하도록 설정 > error발생하여 그냥 기본값으로 설정
+- 반응형 고려 시에는 CSS에서 rem,em단위로 설정하여 변경되도록 하였다.
 
 ```javascript
 import { ReactComponent as MyLikeList } from "../assets/my-like-list.svg";
@@ -125,5 +129,24 @@ import { ReactComponent as MyPage } from "../assets/my-page.svg";
 ```
 
 <br>
+
+> #### 2. ✨ : footer 컴포넌트 생성
+
+- footer 컴포넌트 생성 및 스타일링
+- 리액트에서 외부 링크로 이동하는 방법 : onclick = () => window.open(url)
+
+```javascript
+const instagramUrl = "https://www.instagram.com/magazine_speakeasy/";
+
+<li
+  onClick={() => {
+    window.open(instagramUrl);
+  }}
+></li>;
+```
+
+<br>
+
+##### ✖️ 더 추가할 기능 : 이메일 연동, 디자인 확정 시 logo 크기 및 여백 수정
 
 ## ✅ Takeaway 리팩토링 외 느낀점/개선할점
