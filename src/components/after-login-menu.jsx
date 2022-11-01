@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../styles/header.module.css";
-import { ReactComponent as MyLikeList } from "../assets/my-like-list.svg";
-import { ReactComponent as MyPage } from "../assets/my-page.svg";
+import { ReactComponent as MyLikeList } from "../assets/svg/my-like-list.svg";
+import { ReactComponent as MyPage } from "../assets/svg/my-page.svg";
 
 const AfterLoginMenu = (props) => {
   const logOut = () => {

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import styles from "../styles/search-bar.module.css";
-import { ReactComponent as Search } from "../assets/search.svg";
+import { ReactComponent as Search } from "../assets/svg/search.svg";
 
 const SearchBar = (props) => {
   const inputRef = useRef();

@@ -1,10 +1,9 @@
 .header {
   width: 100%;
-  height: auto;
+  height: 12rem;
   padding: 2.4rem 1.6rem 1.6rem 1.6rem;
   background: #ffffff;
   border-bottom: 1px solid #d9d9d9;
-  z-index: -1;
 }
 
 .nav {
@@ -56,8 +55,12 @@
   justify-content: flex-end;
   padding-top: 0.8rem;
 }
+.loginMenu a {
+  display: inline-block;
+}
 
 .loginMenu li {
+  height: 2.317rem;
   font-size: 1.6rem;
   font-family: "Noto Sans KR";
   font-weight: 500;
@@ -75,7 +78,8 @@
 /* login menu - after login */
 
 .logOut {
-  line-height: 23.17px;
+  height: 23.17rem;
+  line-height: 23.17rem;
 }
 
 .myLikeList {

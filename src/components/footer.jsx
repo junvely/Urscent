@@ -1,15 +1,15 @@
 import React from "react";
 import styles from "../styles/footer.module.css";
 import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../assets/logo.svg";
-import { ReactComponent as Instagram } from "../assets/instagram.svg";
-import { ReactComponent as Email } from "../assets/e-mail.svg";
+import { ReactComponent as Logo } from "../assets/svg/logo.svg";
+import { ReactComponent as Instagram } from "../assets/svg/instagram.svg";
+import { ReactComponent as Email } from "../assets/svg/e-mail.svg";
 
 const instagramUrl = "https://www.instagram.com/magazine_speakeasy/";
 
 const Footer = (props) => {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <nav className={styles.nav}>
         <div className={styles.fnb}>
           <Logo className={styles.logo}></Logo>
@@ -52,7 +52,7 @@ const Footer = (props) => {
           </li>
         </ul>
       </nav>
-    </div>
+    </footer>
   );
 };
 

@@ -67,7 +67,7 @@
 
 > #### 10/19 : 💄 : 추후 확장성을 고려하여 반응형 단위로 변경(%, rem 등)
 
-- 본 프로젝트는 반응형이 아닌 데스크탑 사이즈로만 계획되었으나, 추후 확장성을 고려하여 반응형 단위로 변경 및 태블릿모드 반응형까지 진행(임의)
+- 본 프로젝트는 반응형이 아닌 데스크탑 사이즈로만 계획되었으나, 유지보수 및 추후 확장성을 고려하여 반응형 단위로 변경 및 태블릿모드 반응형까지 고려
 - html의 font-size : 62.5%로 변경 : 기존 16px(100%)에서 > 10px(62.5%)로 변경 : rem단위를 10px 단위로 계산을 용이하게 하기 위함(ex. 16px > 1.6rem)
 
 ```css
@@ -120,6 +120,7 @@ html {
 - ReactComponent as ~ 로 컴포넌트로 import
 - svg파일 내부에서 width, height = "current"로 props으로 값을 주거나, CSS에서 자유롭게 변경가능 하도록 설정 > error발생하여 그냥 기본값으로 설정
 - 반응형 고려 시에는 CSS에서 rem,em단위로 설정하여 변경되도록 하였다.
+- \*주의) Svg는 inline이기 때문에 여백이 생긴다. > block으로 변경
 
 ```javascript
 import { ReactComponent as MyLikeList } from "../assets/my-like-list.svg";
@@ -133,7 +134,7 @@ import { ReactComponent as MyPage } from "../assets/my-page.svg";
 > #### 2. ✨ : footer 컴포넌트 생성
 
 - footer 컴포넌트 생성 및 스타일링
-- 리액트에서 외부 링크로 이동하는 방법 : onclick = () => window.open(url)
+- 리액트에서 외부 링크(instagram)로 이동 : onclick = () => window.open(url)
 
 ```javascript
 const instagramUrl = "https://www.instagram.com/magazine_speakeasy/";
@@ -145,8 +146,55 @@ const instagramUrl = "https://www.instagram.com/magazine_speakeasy/";
 ></li>;
 ```
 
+##### ✖️ 더 추가할 기능 :
+
+- 이메일 연동
+- ~~디자인 확정 시 logo 크기 및 여백 수정~~
+
 <br>
 
-##### ✖️ 더 추가할 기능 : 이메일 연동, 디자인 확정 시 logo 크기 및 여백 수정
+> #### 11/1 : ✨ : login page 생성 및 스타일 적용
+
+- login page 생성 및 스타일 적용
+- button 컴포넌트 생성
+- custom checkbox
+- 리액트에서 label for=""=> label htmlFor="" : 리액트에서는 input의 id와 연동 가능(name만 입력시x)
+- \*참고) 크롬에서 브라우저 확장 프로그램인 자동 완성 기능을 사용하고 싶을 경우, input에서 autocomplete="on/off" 권한을 지정해 활성화/비활성화 해주어야 한다.
+- 유효성 검사 : 아이디 비밀번호 오류 시 따로 경고창 없이 input값을 비우고 input focus시 placeholder값 안보이게 하여 focus되도록 변경
+
+```javascript
+[DOM] Input elements should have autocomplete attributes (suggested: "current-password"):
+
+```
+
+```html
+<input type="password" name="password" autocomplete="off" />
+<!-- 비활성화 -->
+<input type="text" name="userId" autocomplete="username" />
+<!-- 아이디 -->
+<input type="password" name="password" autocomplete="current-password" />
+<!-- 현재 비밀번호 시 For Chrome-->
+<input type="password" name="password" autocomplete="new-password" />
+<!-- 새 비밀번호 시 For Mozilla-->
+```
+
+##### ✖️ 더 알아보기 : input submit과 button submit 차이
+
+##### ✖️ 더 추가할 기능 :
+
+- 아이디찾기, 비밀번호 찾기 기능
+- 유효성검사
+- login fail 기능
+- 카카오 로그인 연동
+
+<br>
+
+> #### 11/1
+
+##### ✖️ 더 알아보기 :
+
+##### ✖️ 더 추가할 기능 :
+
+<br>
 
 ## ✅ Takeaway 리팩토링 외 느낀점/개선할점
