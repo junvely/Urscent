@@ -183,7 +183,7 @@ const instagramUrl = "https://www.instagram.com/magazine_speakeasy/";
 ##### ✖️ 더 추가할 기능 :
 
 - 아이디찾기, 비밀번호 찾기 기능
-- 유효성검사
+- ~~유효성검사~~
 - login fail 기능
 - 카카오 로그인 연동
 
@@ -214,9 +214,30 @@ const instagramUrl = "https://www.instagram.com/magazine_speakeasy/";
 />
 ```
 
-##### ✖️ 더 알아보기 :
+##### ✖️ 더 알아보기 : JS를 이용한 유효성 검사
+
+<br>
+
+> #### 11/2 : ✨ : JS를 이용한 유효성 검사(에러시 경고창)
+
+- 아이디 비밀번호 오류 시 경고창, 로그인 성공 시 알림창 띄우기
+- 아이디 : 영문소문자, 숫자, 특수문자 10-20자 이내
+- 오류 시 useRef로 접근하여 value 초기화 및 focus시키기
+- 모든 조건 충족 시 form submit
+
+```javascript
+idRef.current.value = "";
+idRef.current.focus();
+```
+
+-
 
 ##### ✖️ 더 추가할 기능 :
+
+- 서버에 폼 전송 후 로그인정보 없을 시 login fail 띄우기
+- 아이디찾기, 비밀번호 찾기 기능
+- 카카오 로그인 연동
+- 아이디저장, 자동로그인(쿠키)
 
 <br>
 

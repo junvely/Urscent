@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styles from "../styles/login.module.css";
 import { ReactComponent as Logo } from "../assets/svg/logo.svg";
 import { Link } from "react-router-dom";
@@ -8,6 +8,56 @@ const Login = (props) => {
   // const loginFail = true;
   const loginFail = false;
 
+  const [inputValue, setInputValue] = useState({
+    userId: "",
+    userPw: "",
+  });
+
+  const idRef = useRef();
+  const pwRef = useRef();
+
+  const { userId, userPw } = inputValue;
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    validate();
+  };
+
+  const validate = () => {
+    const regexId = /^(?=.*?[a-z])(?=.*?[0-9]).{6,12}$/;
+    const regexPw = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{10,20}$/;
+    const idCheck = regexId.test(userId);
+    const pwCheck = regexPw.test(userPw);
+
+    if (!idCheck) {
+      alert("아이디는 영문소문자, 숫자 6-12자 이내 입니다.");
+      idRef.current.value = "";
+      idRef.current.focus();
+      return false;
+    }
+    if (!pwCheck) {
+      alert("비밀번호는 영문소문자, 숫자, 특수문자 10-20자 이내입니다.");
+      pwRef.current.value = "";
+      pwRef.current.focus();
+      return false;
+    }
+    onSubmit(idCheck, pwCheck);
+  };
+
+  const onSubmit = (idCheck, pwCheck) => {
+    if (idCheck && pwCheck) {
+      console.log("form submit");
+    }
+  };
+
   return (
     <div className={styles.loginCon}>
       {/* login form */}
@@ -16,6 +66,7 @@ const Login = (props) => {
         action=""
         name="loginForm"
         id={styles.loginForm}
+        onSubmit={handleSubmit}
       >
         <Link to="/">
           <Logo className={styles.logo}> </Logo>
@@ -25,27 +76,25 @@ const Login = (props) => {
           아이디
         </label>
         <input
+          ref={idRef}
           type="text"
           name="userId"
           className={`${styles.input} ${styles.userId}`}
           placeholder="영문소문자, 숫자 6-12자 이내"
           autoComplete="username"
-          required
-          pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,12}$"
-          title="영문소문자, 숫자 6-12 이내"
+          onChange={handleChange}
         ></input>
         <label htmlFor="userPw" className={styles.label}>
           비밀번호
         </label>
         <input
+          ref={pwRef}
           type="password"
           name="userPw"
           className={`${styles.input} ${styles.userPw}`}
           placeholder="영문소문자, 숫자, 특수문자 10-20자 이내"
           autoComplete="current-password"
-          required
-          pattern="^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*#?&])[a-z\d$@$!%*#?&]{10,20}$"
-          title="영문소문자, 숫자, 특수문자 10-20자 이내"
+          onChange={handleChange}
         ></input>
         {loginFail && (
           <span className={styles.pwFail}>
