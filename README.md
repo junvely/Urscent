@@ -189,6 +189,37 @@ const instagramUrl = "https://www.instagram.com/magazine_speakeasy/";
 
 <br>
 
+> #### 11/2 : ✨ : HTML5에서 추가된 Input 속성 pattern(정규식)을 이용한 유효성 검사
+
+- 아이디 비밀번호 오류 시 title에 입력된 안내문구 띄우기
+- 아이디 : 영문소문자, 숫자, 특수문자 10-20자 이내
+
+```html
+<input
+  type="text"
+  required
+  pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,12}$"
+  title="영문소문자, 숫자 6-12 이내"
+/>
+```
+
+- 비밀번호 : 영문소문자, 숫자, 특수문자 10-20자 이내
+
+```html
+<input
+  type="password"
+  required
+  pattern="^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*#?&])[a-z\d$@$!%*#?&]{10,20}$"
+  title="영문소문자, 숫자 6-12 이내"
+/>
+```
+
+##### ✖️ 더 알아보기 :
+
+##### ✖️ 더 추가할 기능 :
+
+<br>
+
 > #### 11/1
 
 ##### ✖️ 더 알아보기 :

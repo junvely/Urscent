@@ -31,6 +31,8 @@ const Login = (props) => {
           placeholder="영문소문자, 숫자 6-12자 이내"
           autoComplete="username"
           required
+          pattern="^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{6,12}$"
+          title="영문소문자, 숫자 6-12 이내"
         ></input>
         <label htmlFor="userPw" className={styles.label}>
           비밀번호
@@ -42,6 +44,8 @@ const Login = (props) => {
           placeholder="영문소문자, 숫자, 특수문자 10-20자 이내"
           autoComplete="current-password"
           required
+          pattern="^(?=.*[a-z])(?=.*\d)(?=.*[$@$!%*#?&])[a-z\d$@$!%*#?&]{10,20}$"
+          title="영문소문자, 숫자, 특수문자 10-20자 이내"
         ></input>
         {loginFail && (
           <span className={styles.pwFail}>
