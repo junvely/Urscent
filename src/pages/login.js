@@ -38,13 +38,11 @@ const Login = (props) => {
     const pwCheck = regexPw.test(userPw);
 
     if (!idCheck) {
-      alert("아이디는 영문소문자, 숫자 6-12자 이내 입니다.");
       idRef.current.value = "";
       idRef.current.focus();
       return false;
     }
     if (!pwCheck) {
-      alert("비밀번호는 영문소문자, 숫자, 특수문자 10-20자 이내입니다.");
       pwRef.current.value = "";
       pwRef.current.focus();
       return false;
