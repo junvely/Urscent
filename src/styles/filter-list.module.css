@@ -1,0 +1,18 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.genderNote {
+  margin-right: 5.6rem;
+}
+.weatherNote {
+  margin-right: 4rem;
+}
+.tpoNote {
+  margin-right: 6.4rem;
+  font-family: "noto sans kr", sans-serif;
+}
+.ratingNote {
+  margin-right: 4.3rem;
+}

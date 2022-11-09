@@ -1,0 +1,61 @@
+/* default */
+.label {
+  font-size: 1.6rem;
+  /* font-family: Roboto, sans-serif; */
+  font-weight: 400;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.checkBox {
+  display: none;
+}
+
+.customCheckBox {
+  display: block;
+  border: 1px solid #333;
+}
+
+.checkBox:checked + .customCheckBox {
+  background: url(../assets/svg/round-check.svg) 50% / cover;
+  border: none;
+}
+
+/* login page */
+.loginLabel {
+  line-height: 2.317rem;
+  font-family: noto sans kr, sans-serif;
+}
+
+.loginCheckBox {
+  width: 18px;
+  height: 18px;
+}
+
+.loginCustomCheckBox {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.6rem;
+  border-radius: 50%;
+}
+
+/* home page */
+
+.homeLabel {
+  font-size: 1.8rem;
+  line-height: 2.1rem;
+}
+
+.homeCustomCheckBox {
+  display: block;
+  width: 13px;
+  height: 13px;
+  margin-right: 0.4rem;
+  border: 1px solid #333;
+}
+
+.checkBox:checked + .homeCustomCheckBox {
+  background: url(../assets/svg/square-check.svg) 50% / cover;
+  border: none;
+}

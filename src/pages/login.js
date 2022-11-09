@@ -3,26 +3,39 @@ import styles from "../styles/login.module.css";
 import { ReactComponent as Logo } from "../assets/svg/logo.svg";
 import { Link } from "react-router-dom";
 import Button from "../components/button";
+import CheckBox from "../components/checkBox";
 
 const Login = (props) => {
-  // const loginFail = true;
-  const loginFail = false;
+  // 추가할 기능 : 폼 서버에 전송 onSubmit 시
+  // App에서 사용자정보 state 업데이트 함수 props으로 전달받아 실행
+  // App에서 로그인 성공시 state에 저장, 실패시 login에 props전달
+  // 로그인 정보 없을 시 에러문구 띄우기 > span에 value="입력하신 아이디와 비밀번호가 일치하지 않습니다." 방식이 좋을 듯
 
-  const [inputValue, setInputValue] = useState({
+  const loginFail = true;
+  // const loginFail = false;
+
+  const [loginFormValue, setLoginFormValue] = useState({
     userId: "",
     userPw: "",
+    saveId: false,
+    autoLogin: false,
   });
 
-  const idRef = useRef();
-  const pwRef = useRef();
+  const { userId, userPw } = loginFormValue;
 
-  const { userId, userPw } = inputValue;
-
-  const handleChange = (event) => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setInputValue({
-      ...inputValue,
+    setLoginFormValue({
+      ...loginFormValue,
       [name]: value,
+    });
+  };
+
+  const handleInputChecked = (event) => {
+    const { name, checked } = event.target;
+    setLoginFormValue({
+      ...loginFormValue,
+      [name]: checked,
     });
   };
 
@@ -30,6 +43,9 @@ const Login = (props) => {
     event.preventDefault();
     validate();
   };
+
+  const idRef = useRef();
+  const pwRef = useRef();
 
   const validate = () => {
     const regexId = /^(?=.*?[a-z])(?=.*?[0-9]).{6,12}$/;
@@ -80,7 +96,7 @@ const Login = (props) => {
           className={`${styles.input} ${styles.userId}`}
           placeholder="영문소문자, 숫자 6-12자 이내"
           autoComplete="username"
-          onChange={handleChange}
+          onChange={handleInputChange}
         ></input>
         <label htmlFor="userPw" className={styles.label}>
           비밀번호
@@ -92,39 +108,32 @@ const Login = (props) => {
           className={`${styles.input} ${styles.userPw}`}
           placeholder="영문소문자, 숫자, 특수문자 10-20자 이내"
           autoComplete="current-password"
-          onChange={handleChange}
+          onChange={handleInputChange}
         ></input>
+        {/* 로그인 실패 시 */}
         {loginFail && (
-          <span className={styles.pwFail}>
-            입력하신 아이디와 비밀번호가 일치하지 않습니다.
+          <span className={styles.loginFail}>
+            {/* 입력하신 아이디와 비밀번호가 일치하지 않습니다. */}
           </span>
         )}
         <ul className={styles.checkList}>
           <li>
-            <label htmlFor="saveId" className={styles.checkLabel}>
-              <input
-                type="checkbox"
-                name="saveId"
-                id="saveId"
-                className={`${styles.checkBox} ${styles.saveId}`}
-                value="saveId"
-              />
-              <span className={styles.customCheckBox}></span>
-              아이디저장
-            </label>
+            <CheckBox
+              name="saveId"
+              value="saveId"
+              label="아이디저장"
+              displayPage="login"
+              handleInputChecked={handleInputChecked}
+            />
           </li>
           <li>
-            <label htmlFor="autoLogin" className={styles.checkLabel}>
-              <input
-                type="checkbox"
-                name="autoLogin"
-                id="autoLogin"
-                className={`${styles.checkBox} ${styles.autoLogin}`}
-                value="autoLogin"
-              />
-              <span className={styles.customCheckBox}></span>
-              자동로그인
-            </label>
+            <CheckBox
+              name="autoLogin"
+              value="autoLogin"
+              label="자동로그인"
+              displayPage="login"
+              handleInputChecked={handleInputChecked}
+            />
           </li>
         </ul>
         <Button

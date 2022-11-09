@@ -70,7 +70,7 @@ textarea:focus:-ms-input-placeholder {
 .userPw {
   margin-bottom: 0.8rem;
 }
-.pwFail {
+.loginFail {
   font-family: "Noto Sans KR";
   font-weight: 400;
   font-size: 1.5rem;
@@ -84,44 +84,10 @@ textarea:focus:-ms-input-placeholder {
 }
 
 .checkList > li {
-  margin-top: 1rem;
-  margin-right: 8rem;
+  margin: 1rem 8rem 0 0.6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.checkLabel {
-  font-size: 1.6rem;
-  font-family: Noto Sans KR, sans-serif;
-  font-weight: 400;
-  line-height: 2.317rem;
-  color: #333;
-  margin-left: 0.6rem;
-  display: flex;
-  align-items: center;
-}
-
-.checkBox {
-  width: 1.8rem;
-  height: 1.8rem;
-  display: none;
-}
-
-/* custom checkBox */
-
-.customCheckBox {
-  display: block;
-  width: 1.8rem;
-  height: 1.8rem;
-  margin-right: 0.6rem;
-  border: 1px solid #333;
-  border-radius: 50%;
-}
-
-.checkBox:checked + .customCheckBox {
-  background: url(../assets/svg/checkBox-round.svg) 50% / cover;
-  border: none;
 }
 
 .or {
