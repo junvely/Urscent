@@ -25,7 +25,7 @@
 
 <br>
 
-## ✨ Business Card Maker기능
+## ✨ Urscent 기능
 
 #### 프로젝트 기능 사항
 
@@ -281,16 +281,47 @@ Add a <tbody>, <thead> or <tfoot> to your code to match the DOM tree generated b
 
 - detail-filter 디자인확정에 따라 전체 코드 구조 및 스타일 수정
 - 향 필터에서 평점 체크박스 디자인(별점) 수정 및 지속력 Bar 스타일 적용
-- 필터 API연동
+- 객체 구조 수정하여 필터 API연동
 
 <br>
 
-> #### 11/4 :
+> #### 11/12 : ✨ : Sign up 페이지 생성 및 유효성 검사
+
+- sign up 페이지 스타일 및 유효성 검사 적용
+- Ref를 배열로 생성하여 여러개의 element 접근 및 관리하기 > 체크박스 중복 제거
+
+```javascript
+// 배열로 ref 생성
+const genderRef = useRef([]);
+
+// ref의 current배열[0]번째 element로 추가
+<input type="checkbox" ref={(el) => (genderRef.current[0] = el)} />;
+<input type="checkbox" ref={(el) => (genderRef.current[1] = el)} />;
+
+// ref의 elements배열 제어하기
+const checkOnlyOne = (target) => {
+  for (let i = 0; i < genderRef.current.length; i++) {
+    if (genderRef.current[i] !== target) {
+      genderRef.current[i].checked = false;
+    }
+  }
+};
+```
+
+- Ref로 접근하여 dom의 스타일 등 값을 직접 변경하는 것은 그닥 좋지 않은 것 같다. 가급적이면 state를 통해 값을 업데이트하도록 한다.
+
+##### ✖️ 더 추가할 기능 :
+
+- 개인정보 수집 동의 유효성검사 요청사항 확인 후 수정, 모달창
+- 객체 구조 수정하여 API 연동
+- 추후 이메일 주소 확인 등 UI 추가 가능성(이메일 주소는 My page에서 수정 가능하며 아이디/비밀번호 분실 시 유효하지 않은 이메일로 가입한 유저의 경우 urscent 메일 계정으로 연락하여 처리하기로 함)
+
+<br>
+
+> #### 11/12 : ✨ :
 
 ##### ✖️ 더 알아보기 :
 
 ##### ✖️ 더 추가할 기능 :
-
-<br>
 
 ## ✅ Takeaway 리팩토링 외 느낀점/개선할점

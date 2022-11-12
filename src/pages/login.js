@@ -11,8 +11,11 @@ const Login = (props) => {
   // App에서 로그인 성공시 state에 저장, 실패시 login에 props전달
   // 로그인 정보 없을 시 에러문구 띄우기 > span에 value="입력하신 아이디와 비밀번호가 일치하지 않습니다." 방식이 좋을 듯
 
-  const loginFail = true;
-  // const loginFail = false;
+  // const loginFail = true;
+  const loginFail = false;
+
+  const idRef = useRef();
+  const pwRef = useRef();
 
   const [loginFormValue, setLoginFormValue] = useState({
     userId: "",
@@ -44,9 +47,7 @@ const Login = (props) => {
     validate();
   };
 
-  const idRef = useRef();
-  const pwRef = useRef();
-
+  // 유효성 검사
   const validate = () => {
     const regexId = /^(?=.*?[a-z])(?=.*?[0-9]).{6,12}$/;
     const regexPw = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{10,20}$/;
@@ -85,7 +86,7 @@ const Login = (props) => {
         <Link to="/">
           <Logo className={styles.logo}> </Logo>
         </Link>
-
+        {/* 아이디 */}
         <label htmlFor="userId" className={styles.label}>
           아이디
         </label>
@@ -98,6 +99,7 @@ const Login = (props) => {
           autoComplete="username"
           onChange={handleInputChange}
         ></input>
+        {/* 비밀번호 */}
         <label htmlFor="userPw" className={styles.label}>
           비밀번호
         </label>
@@ -113,10 +115,11 @@ const Login = (props) => {
         {/* 로그인 실패 시 */}
         {loginFail && (
           <span className={styles.loginFail}>
-            {/* 입력하신 아이디와 비밀번호가 일치하지 않습니다. */}
+            입력하신 아이디와 비밀번호가 일치하지 않습니다.
           </span>
         )}
         <ul className={styles.checkList}>
+          {/* 아이디 저장 */}
           <li>
             <CheckBox
               name="saveId"
@@ -126,6 +129,7 @@ const Login = (props) => {
               handleInputChecked={handleInputChecked}
             />
           </li>
+          {/* 자동 로그인 */}
           <li>
             <CheckBox
               name="autoLogin"

@@ -35,6 +35,8 @@ function getLabelStyle(page) {
       return styles.loginLabel;
     case "home":
       return styles.homeLabel;
+    case "signUp":
+      return styles.signUpLabel;
     default:
       console.log(`unknown button style ${page}page`);
       return styles.loginLabel;
@@ -46,6 +48,8 @@ function getCheckBoxStyle(page) {
     case "login":
     case "home":
       return styles.loginCheckBox;
+    case "signUp":
+      return styles.signUpCheckBox;
     default:
       console.log(`unknown checkBox style ${page}page`);
       return styles.loginCheckBox;
@@ -58,6 +62,8 @@ function getCustomCheckBoxStyle(page) {
       return styles.loginCustomCheckBox;
     case "home":
       return styles.homeCustomCheckBox;
+    case "signUp":
+      return styles.signUpCustomCheckBox;
     default:
       console.log(`unknown customCheckBox style ${page}page`);
       return styles.loginCustomCheckBox;
