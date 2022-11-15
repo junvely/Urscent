@@ -1,9 +1,17 @@
 import React from "react";
 import styles from "../styles/checkBox.module.css";
 
-const CheckBox = ({ name, value, label, displayPage, handleInputChecked }) => {
+const CheckBox = ({
+  name,
+  value,
+  label,
+  displayPage,
+  handleInputChecked,
+  onChangeValidate,
+}) => {
   const onChecked = (event) => {
     handleInputChecked(event);
+    onChangeValidate(event);
   };
 
   return (

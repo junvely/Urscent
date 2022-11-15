@@ -19,7 +19,6 @@ const SignUp = (props) => {
     email: "",
     privacyInfoAgree: "",
   });
-
   const [btnActivate, setBtnActivate] = useState("");
 
   const idRef = useRef();
@@ -52,18 +51,16 @@ const SignUp = (props) => {
     onSubmitValidate();
   };
 
-  // 성별 체크 중복 방지
-  const checkOnlyOne = (target) => {
-    for (let i = 0; i < genderRef.current.length; i++) {
-      if (genderRef.current[i] !== target) {
-        genderRef.current[i].checked = false;
-      }
+  const onSubmit = (submit) => {
+    if (submit) {
+      console.log("sign up");
     }
   };
 
   // 유효성 검사
-  const regexId = /^(?=.*?[a-z])(?=.*?[0-9]).{6,12}$/;
-  const regexPw = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{10,20}$/;
+  const regexId = /^[a-z0-9](?=.*?[a-z])(?=.*?[0-9]).{5,11}[a-z0-9]$/;
+  const regexPw =
+    /^[a-z0-9#?!@$%^&*-](?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{9,19}$/;
   const idCheck = regexId.test(userId);
   const pwCheck = regexPw.test(userPw);
   const pwOkCheck = userPw === pwOk;
@@ -71,13 +68,13 @@ const SignUp = (props) => {
 
   // onSubmit시
   const onSubmitValidate = () => {
-    // 아이디
+    // 아이디 체크
     if (!idCheck) {
       idRef.current.value = "";
       idRef.current.focus();
       return false;
     }
-    // 비밀번호
+    // 비밀번호 체크
     if (!pwCheck) {
       pwRef.current.value = "";
       pwRef.current.focus();
@@ -95,7 +92,7 @@ const SignUp = (props) => {
       pwOkRef.current.focus();
       return false;
     }
-    // 이메일
+    // 이메일 체크
     if (emailCheck) {
       setBtnActivate(true);
     } else {
@@ -103,25 +100,39 @@ const SignUp = (props) => {
       emailRef.current.focus();
       return false;
     }
-    if (privacyInfoAgree === false) {
-      alert("개인정보 수집 및 이용 동의는 필수입니다.");
+    // 개인정보 수집 동의
+    if (privacyInfoAgree) {
+      setBtnActivate(true);
+    } else {
+      setBtnActivate(false);
       return false;
     }
     onSubmit(true);
   };
 
-  // onChange시
-  const onChangeValidate = () => {
-    if (idCheck && pwCheck && pwOkCheck && emailCheck && email.length > 1) {
+  // 개인정보 동의 onChange시 유효성검사 버튼 활성화/비활성화
+  const onChangeValidate = (event) => {
+    const privacyAgree = event.target.checked;
+    if (
+      idCheck &&
+      pwCheck &&
+      pwOkCheck &&
+      emailCheck &&
+      email.length > 1 &&
+      privacyAgree
+    ) {
       setBtnActivate(true);
     } else {
       setBtnActivate(false);
     }
   };
 
-  const onSubmit = (submit) => {
-    if (submit) {
-      console.log("sign up");
+  // 성별 체크 중복 방지
+  const checkOnlyOne = (target) => {
+    for (let i = 0; i < genderRef.current.length; i++) {
+      if (genderRef.current[i] !== target) {
+        genderRef.current[i].checked = false;
+      }
     }
   };
 
@@ -248,7 +259,6 @@ const SignUp = (props) => {
           placeholder="이메일 주소를 입력하세요."
           onChange={(e) => {
             handleInputChange(e);
-            onChangeValidate();
           }}
         ></input>
         <span className={styles.signUpFail}>
@@ -262,11 +272,13 @@ const SignUp = (props) => {
             label="개인정보 수집 및 이용 동의 (필수)"
             displayPage="home"
             handleInputChecked={handleInputChecked}
+            onChangeValidate={onChangeValidate}
           ></CheckBox>
           <Link to="/privacy-policy" className={styles.privacyPolicyDetail}>
             자세히
           </Link>
         </div>
+        {/* 회원가입 버튼 활성화 */}
         <Button
           type="submit"
           id={btnActivate ? "signUpActive" : "signUpDeActive"}

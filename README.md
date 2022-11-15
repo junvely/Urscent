@@ -1,14 +1,25 @@
-# 🧴Urscent
+# 🔥Urscent
 
-#### 🧴Urscent : 향수 프로젝트
+#### 🔥Urscent : 향수 프로젝트
 
-- 머신러닝 알고리즘을 활용해 개인화된 향수 추천을 제공하는 웹 개발 프로젝트 : 프론트엔드 담당
+- 머신러닝 알고리즘을 활용해 개인화된 향수 추천을 제공하는 웹 개발 프로젝트 : 프론트엔드(FE) 담당
 
-- Notion :
+- 배포 : https://urscent.netlify.app/
 
-<!-- <img src ="" alt=""> -->
+- Notion : https://glow-chicory-fd6.notion.site/Roadmap-4428aacc2c884dc2b7716c9cc33251d7
 
-## 🕹️ Stack 사용스택(프론트엔드)
+#### 💻Desktop page
+
+#### 🔐login page
+
+<div style="display:flex">
+  <img src ="/public/img/login.jpg" alt="login-page" style="width:400px">
+  <img src ="/public/img/sign-up.jpg" alt="login-page" style="width:400px">
+</div>
+
+<br>
+
+## 🕹️ Stack 사용스택(FE)
 
 <div style="display:flex">
   <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white">
@@ -19,13 +30,7 @@
 
 <br>
 
-#### 💻Desktop page
-
-#### 🔐login page
-
-<br>
-
-## ✨ Urscent 기능
+## ✨ Urscent 기능(FE)
 
 #### 프로젝트 기능 사항
 
@@ -224,15 +229,12 @@ const instagramUrl = "https://www.instagram.com/magazine_speakeasy/";
 - 아이디 : 영문소문자, 숫자, 특수문자 10-20자 이내
 - 오류 시 useRef로 접근하여 value 초기화 및 focus시키기
 - 모든 조건 충족 시 form submit
-  inputRef.current.focus();
 
 ```javascript
 formRef.current.reset(); // reset은 form에서만 가능
 idRef.current.value = ""; // 위를 대체하여 값을 비우는 방법
 idRef.current.focus(); // focus는 input에서도 가능
 ```
-
--
 
 ##### ✖️ 더 추가할 기능 :
 
@@ -318,10 +320,48 @@ const checkOnlyOne = (target) => {
 
 <br>
 
-> #### 11/12 : ✨ :
+> #### 11/15 : 🐛 : ID, PW 유효성 검사 누락 수정
 
-##### ✖️ 더 알아보기 :
+- 대문자 유효성 검사 누락
+- 유효성 검사에서 설정한 순서대로(영문소문자 > 숫자 > 특수문자 순서) 입력 시 특수문자 입력 방지 유효성 검사가 원활하게 작동하지만, 반대 순서로 입력시(특수문자 순서 > 영문소문자 > 숫자)에는 작동하지 않음 : 앞쪽에서도 [ ] 패턴 추가하여 해결(임시)
 
-##### ✖️ 더 추가할 기능 :
+```javascript
+// 수정 전
+const regexId = /^[a-z0-9](?=.*?[a-z])(?=.*?[0-9]).{5,11}$/; //특수문자를 앞쪽에서 입력하면 입력 방지 안됨
+
+//수정 후
+const regexId = /^[a-z0-9](?=.*?[a-z])(?=.*?[0-9]).{5,11}[a-z0-9]$/; //앞쪽 패턴 추가하여 특수문자 입력 방지
+```
+
+- 개인정보 동의 체크 > onChange 시 handleInputChecked실행 후 onChangeValidate이 실행되는데, 이 때 아직 privacyInfoAgree의 state 체크값이 업데이트 되기 전, 동시적으로 onChangeValidate 유효성검사가 실행되어 버튼 체크값 변경 전 값이 전달됨, 이 때문에 버튼활성화가 반대로 일어나는 현상 발생 > 렌더링 순서를 우선으로 조율 가능한지 알아보기, 일단 privacyInfoAgree의 state 값을 참조하지 않고 event.target의 checked값을 참조하도록 설정하여 체크 시 버튼활성화 기능하도록 함
+
+```javascript
+const onChecked = (event) => {
+  handleInputChecked(event);
+  onChangeValidate(event);
+};
+```
+
+```javascript
+const onChangeValidate = (event) => {
+  const privacyAgree = event.target.checked;
+  if (
+    idCheck &&
+    pwCheck &&
+    pwOkCheck &&
+    emailCheck &&
+    email.length > 1 &&
+    privacyAgree
+  ) {
+    setBtnActivate(true);
+  } else {
+    setBtnActivate(false);
+  }
+};
+```
+
+##### ✖️ 더 알아보기 : 렌더링 순서 세부 조정 방법
+
+##### ✖️ 더 추가할 기능 : 추후 모든 input 유효성검사 onChange로 변경하여 버튼활성화 가능성o
 
 ## ✅ Takeaway 리팩토링 외 느낀점/개선할점

@@ -1,15 +1,15 @@
 import React, { useRef, useState } from "react";
-import styles from "../styles/login.module.css";
-import { ReactComponent as Logo } from "../assets/svg/logo.svg";
 import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../assets/svg/logo.svg";
 import Button from "../components/button";
 import CheckBox from "../components/checkBox";
+import styles from "../styles/login.module.css";
 
 const Login = (props) => {
   // 추가할 기능 : 폼 서버에 전송 onSubmit 시
   // App에서 사용자정보 state 업데이트 함수 props으로 전달받아 실행
   // App에서 로그인 성공시 state에 저장, 실패시 login에 props전달
-  // 로그인 정보 없을 시 에러문구 띄우기 > span에 value="입력하신 아이디와 비밀번호가 일치하지 않습니다." 방식이 좋을 듯
+  // 로그인 정보 없을 시 에러문구 띄우기
 
   // const loginFail = true;
   const loginFail = false;
@@ -49,8 +49,9 @@ const Login = (props) => {
 
   // 유효성 검사
   const validate = () => {
-    const regexId = /^(?=.*?[a-z])(?=.*?[0-9]).{6,12}$/;
-    const regexPw = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{10,20}$/;
+    const regexId = /^[a-z0-9](?=.*?[a-z])(?=.*?[0-9]).{5,11}[a-z0-9]$/;
+    const regexPw =
+      /^[a-z0-9#?!@$%^&*-](?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{9,19}$/;
     const idCheck = regexId.test(userId);
     const pwCheck = regexPw.test(userPw);
 
@@ -120,7 +121,7 @@ const Login = (props) => {
         )}
         <ul className={styles.checkList}>
           {/* 아이디 저장 */}
-          <li>
+          <li className={styles.saveId}>
             <CheckBox
               name="saveId"
               value="saveId"

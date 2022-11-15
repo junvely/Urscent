@@ -84,10 +84,12 @@ textarea:focus:-ms-input-placeholder {
 }
 
 .checkList > li {
-  margin: 1rem 8rem 0 0.6rem;
+  margin: 1rem 0 0 0.6rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+}
+.saveId {
+  padding-right: 8rem;
 }
 
 .or {
